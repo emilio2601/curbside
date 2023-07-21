@@ -1,3 +1,4 @@
+require 'active_support'
 require 'active_support/core_ext'
 require 'nokogiri'
 require 'open-uri'
@@ -24,7 +25,7 @@ def print_error_and_exit(error_message)
   exit 1
 end
 
-menu_html = open("https://www.curbsideoakland.com/menu").read
+menu_html = URI.open("https://www.curbsideoakland.com/menu").read
 
 document = Nokogiri::HTML(menu_html)
 
